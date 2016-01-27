@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="Unity_Project.MainPage"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Unity_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:adduplex="using:AdDuplex.Universal.Controls.Win.XAML"
+    mc:Ignorable="d">
+
+    <!--Additional grid to wrap SwapChainPanel and AdDuplex ad control-->
+    <Grid>
+        <SwapChainPanel x:Name="DXSwapChainPanel">
+            <Grid x:Name="ExtendedSplashGrid" >
+                <Image x:Name="ExtendedSplashImage" Source="Assets/SplashScreen.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </SwapChainPanel>
+        <!--This is an 250x250 ad control positioned on the top center part of the screen
+            You must change AdUnitId and AppKey to your own. These are only for demonstrational purposes.
+            Get your AdUnitId and Appkey indentifiers by registering an app and creating an ad unit at www.adduplex.com
+            Available ad sizes: 300x250,728x90,500x130,292x60,250x125,160x600,250x250
+        -->
+        <adduplex:AdControl AdUnitId="175903" AppKey="e947e5cc-7d8f-4413-971e-d8911821a546" Size="250x250"
+                            VerticalAlignment="Top" HorizontalAlignment="Center"></adduplex:AdControl>
+    </Grid>
+</Page>

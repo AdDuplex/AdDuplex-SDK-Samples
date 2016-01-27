@@ -327,11 +327,11 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   metroPackageName: Unity Project
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 00e5f4b81178d201
   metroApplicationDescription: Unity Project
   wsaImages: {}
   metroTileShortName: 
