@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 using UnityPlayer;
+using AdDuplex.Universal.Controls.WinPhone.XAML;
 
 namespace Unity_Project
 {
@@ -33,7 +34,9 @@ namespace Unity_Project
 		private Rect splashImageRect;
 		private WindowSizeChangedEventHandler onResizeHandler;
 
-		public MainPage()
+        InterstitialAd _interstitialAd;
+
+        public MainPage()
 		{
 			this.InitializeComponent();
 			NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Required;
@@ -61,14 +64,47 @@ namespace Unity_Project
 #if UNITY_WP_8_1
 			SetupLocationService();
 #endif
+            Interop.LoadInterstitialEvent += Interop_LoadInterstitialEvent;
+            Interop.ShowInterstitialEvent += Interop_ShowInterstitialEvent;
 		}
 
-		/// <summary>
-		/// Invoked when this page is about to be displayed in a Frame.
-		/// </summary>
-		/// <param name="e">Event data that describes how this page was reached.  The Parameter
-		/// property is typically used to configure the page.</param>
-		protected override void OnNavigatedTo(NavigationEventArgs e)
+        private async void Interop_ShowInterstitialEvent(object sender, EventArgs e)
+        {
+            InitializeInterstitialAd();
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                       async () =>
+                       {
+                           InitializeInterstitialAd();
+                           await _interstitialAd.ShowAdAsync();
+                       });
+        }
+
+        private async void Interop_LoadInterstitialEvent(object sender, EventArgs e)
+        {
+            InitializeInterstitialAd();
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                       async () =>
+                       {
+                           InitializeInterstitialAd();
+                           await _interstitialAd.LoadAdAsync();
+                       });
+        }
+
+        private async void InitializeInterstitialAd()
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                       () =>
+                       {
+                           _interstitialAd = new InterstitialAd("136067");
+                       });
+        }
+
+        /// <summary>
+        /// Invoked when this page is about to be displayed in a Frame.
+        /// </summary>
+        /// <param name="e">Event data that describes how this page was reached.  The Parameter
+        /// property is typically used to configure the page.</param>
+        protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 			splash = (SplashScreen)e.Parameter;
 			OnResize();

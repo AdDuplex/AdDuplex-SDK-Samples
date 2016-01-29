@@ -17,14 +17,18 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="da710270-b9dc-4a04-adab-712b15dbdf29.App">
       <m3:VisualElements DisplayName="Unity Project" Square150x150Logo="Assets\MediumTile.png" Square44x44Logo="Assets\AppIcon.png" Description="Unity Project" ForegroundText="light" BackgroundColor="transparent">
-        <m3:DefaultTile DefaultSize="square150x150Logo" Square71x71Logo="Assets\SmallTile.png" />
+        <m3:DefaultTile DefaultSize="square150x150Logo" Square71x71Logo="Assets\SmallTile.png">
+        </m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" />
         <m3:InitialRotationPreference>
+          <m3:Rotation Preference="portrait" />
           <m3:Rotation Preference="landscape" />
           <m3:Rotation Preference="landscapeFlipped" />
-          <m3:Rotation Preference="portrait" />
         </m3:InitialRotationPreference>
       </m3:VisualElements>
     </Application>
   </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+  </Capabilities>
 </Package>

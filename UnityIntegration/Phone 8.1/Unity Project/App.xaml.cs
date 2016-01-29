@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using UnityPlayer;
+using AdDuplex.Universal.Controls.WinPhone.XAML;
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
 namespace Unity_Project
@@ -91,7 +92,9 @@ namespace Unity_Project
 		{
 			splashScreen = args.SplashScreen;
 			InitializeUnity(args.Arguments);
-		}
+
+            AdDuplexClient.Initialize("9bd44813-9b39-46e3-ad9e-c6b30a76d350");
+        }
 
 		private void InitializeUnity(string args)
 		{

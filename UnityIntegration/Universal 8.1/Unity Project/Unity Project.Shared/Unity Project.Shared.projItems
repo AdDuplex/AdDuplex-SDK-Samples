@@ -9,16 +9,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs">
     </Compile>
-
     <Content Include="$(MSBuildThisFileDirectory)Data\**" />
   </ItemGroup>
 </Project>

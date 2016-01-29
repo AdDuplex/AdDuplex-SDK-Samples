@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <UnityInstallationDir>D:\Program Files\Editor</UnityInstallationDir>
+        <UnityWSAPlayerDir>D:\Program Files\Editor\Data\PlaybackEngines\MetroSupport</UnityWSAPlayerDir>
+        <UnityWSAToolsDir>$(SolutionDir)Unity\Tools</UnityWSAToolsDir>
+        <UnityProjectDir>D:\AdDuplex SDKs\AdDuplex-SDK-Samples\UnityIntegration\Unity Project</UnityProjectDir>
+    </PropertyGroup>
+</Project>

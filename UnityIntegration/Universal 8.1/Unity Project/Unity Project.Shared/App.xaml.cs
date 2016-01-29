@@ -91,9 +91,13 @@ namespace Unity_Project
 		{
 			splashScreen = args.SplashScreen;
 			InitializeUnity(args.Arguments);
-		}
 
-		private void InitializeUnity(string args)
+#if UNITY_WP_8_1
+            AdDuplex.Universal.Controls.WinPhone.XAML.AdDuplexClient.Initialize("9bd44813-9b39-46e3-ad9e-c6b30a76d350");
+#endif
+        }
+
+        private void InitializeUnity(string args)
 		{
 #if UNITY_WP_8_1 || UNITY_UWP
 			ApplicationView.GetForCurrentView().SuppressSystemOverlays = true;
